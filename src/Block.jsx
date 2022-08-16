@@ -4,13 +4,7 @@ import React from 'react';
 
 
 export default function Block({value, currency, onChangeValue, onChangeCurrency, rates}) {
-    let defaultCurrencies = [];
-    for (let rate in rates) {
-        console.log('starting loop');
-        defaultCurrencies.push(rate);
-    }
-
-
+    console.log(rates);
     return (
         <>
             <FormControl className={'currencyList'}>
@@ -19,7 +13,7 @@ export default function Block({value, currency, onChangeValue, onChangeCurrency,
                     value={currency}
                     onChange={(e) => onChangeCurrency(e.target.value)}
                 >
-                    {defaultCurrencies.map(cur => {
+                    {Object.keys(rates).map(cur => {
                         return (
                             <MenuItem
                                 value={cur}
@@ -29,7 +23,6 @@ export default function Block({value, currency, onChangeValue, onChangeCurrency,
                                 {cur}
                             </MenuItem>
                         );
-
                     })}
                 </Select>
 
