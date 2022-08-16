@@ -1,29 +1,40 @@
+import {FormControl, InputLabel, Select, MenuItem} from '@mui/material';
 import React from 'react';
 
 
 
 export default function Block({value, currency, onChangeValue, onChangeCurrency, rates}) {
-    let defaultCurrencies = ['USD', 'GBP'];
-    // console.log(rates);
-    for (let key in rates) {
-        console.log(key);
+    let defaultCurrencies = [];
+    for (let rate in rates) {
+        console.log('starting loop');
+        defaultCurrencies.push(rate);
     }
+
+
     return (
         <>
-            <ul className={'currencyList'}>
-                {defaultCurrencies.map(cur => {
-                    return (
-                        <li
-                            onClick={() => onChangeCurrency(cur)}
-                            className={cur === currency ? 'active' : ''}
-                            key={cur}
-                        >
-                            {cur}
-                        </li>
-                    );
+            <FormControl className={'currencyList'}>
+                <InputLabel>Currency</InputLabel>
+                <Select
+                    value={currency}
+                    onChange={(e) => onChangeCurrency(e.target.value)}
+                >
+                    {defaultCurrencies.map(cur => {
+                        return (
+                            <MenuItem
+                                value={cur}
+                                className={cur === currency ? 'active' : ''}
+                                key={cur}
+                            >
+                                {cur}
+                            </MenuItem>
+                        );
 
-                })}
-            </ul>
+                    })}
+                </Select>
+
+            </FormControl>
+
 
             <input type="number" value={value} onChange={(e) => onChangeValue(e.target.value)}/>
         </>
