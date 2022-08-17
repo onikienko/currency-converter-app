@@ -29,8 +29,12 @@ export default function Block({value, currency, onChangeValue, onChangeCurrency,
             <TextField
                 label="Value"
                 onChange={(e) => onChangeValue(Number(e.target.value))}
+                style={{
+                    paddingRight: 10
+                }}
                 type="number"
                 value={value}
+                className={'currencyChoose'}
             />
         </>
 

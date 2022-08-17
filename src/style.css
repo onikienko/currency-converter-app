@@ -4,3 +4,6 @@
 .currencyList > li {
     cursor: pointer;
 }
+.block {
+    margin: 20px;
+}
