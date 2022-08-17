@@ -1,4 +1,4 @@
-import {Button} from '@mui/material';
+import {Grid} from '@mui/material';
 import React from 'react';
 import Block from './Block.jsx';
 
@@ -49,17 +49,11 @@ export default function App() {
 
     return (
         <>
-            <div className={'block'}>
-                <Block value={fromValue} currency={fromCurrency} onChangeCurrency={onChangeFromCurrency}
-                       onChangeValue={onChangeFromValue} rates={rates}/>
-            </div>
+            <Block value={fromValue} currency={fromCurrency} onChangeCurrency={onChangeFromCurrency}
+                   onChangeValue={onChangeFromValue} rates={rates}/>
 
-            <div className={'block'}>
-
-                <Block value={toValue} currency={toCurrency} onChangeCurrency={onChangeToCurrency}
-                       onChangeValue={onChangeToValue} rates={rates}/>
-            </div>
-            <Button variant={'outlined'}>Change suzuki</Button>
+            <Block value={toValue} currency={toCurrency} onChangeCurrency={onChangeToCurrency}
+                   onChangeValue={onChangeToValue} rates={rates}/>
         </>
     );
 

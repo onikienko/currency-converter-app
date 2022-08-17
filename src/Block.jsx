@@ -8,6 +8,8 @@ export default function Block({value, currency, onChangeValue, onChangeCurrency,
             <FormControl className={'currencyList'}>
                 <InputLabel>Currency</InputLabel>
                 <Select
+
+                    variant={'standard'}
                     value={Object.keys(rates).length !== 0 ? currency : ''}
                     onChange={(e) => onChangeCurrency(e.target.value)}
                 >
@@ -28,7 +30,7 @@ export default function Block({value, currency, onChangeValue, onChangeCurrency,
 
             <TextField
                 label="Value"
-                onChange={(e) => onChangeValue(Number(e.target.value))}
+                onChange={(e) => onChangeValue(e.target.value)}
                 style={{
                     paddingRight: 10
                 }}
