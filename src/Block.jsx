@@ -1,16 +1,14 @@
-import {FormControl, InputLabel, Select, MenuItem} from '@mui/material';
+import {FormControl, InputLabel, MenuItem, Select, TextField} from '@mui/material';
 import React from 'react';
 
 
-
 export default function Block({value, currency, onChangeValue, onChangeCurrency, rates}) {
-    console.log(rates);
     return (
         <>
             <FormControl className={'currencyList'}>
                 <InputLabel>Currency</InputLabel>
                 <Select
-                    value={currency}
+                    value={Object.keys(rates).length !== 0 ? currency : ''}
                     onChange={(e) => onChangeCurrency(e.target.value)}
                 >
                     {Object.keys(rates).map(cur => {
@@ -28,8 +26,12 @@ export default function Block({value, currency, onChangeValue, onChangeCurrency,
 
             </FormControl>
 
-
-            <input type="number" value={value} onChange={(e) => onChangeValue(e.target.value)}/>
+            <TextField
+                label="Value"
+                onChange={(e) => onChangeValue(Number(e.target.value))}
+                type="number"
+                value={value}
+            />
         </>
 
     );

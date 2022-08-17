@@ -5,7 +5,7 @@ import {Button} from '@mui/material';
 
 export default function App() {
     const [fromCurrency, setFromCurrency] = React.useState('USD');
-    const [toCurrency, setToCurrency] = React.useState('GBP');
+    const [toCurrency, setToCurrency] = React.useState('RUB');
     const [fromValue, setFromValue] = React.useState(0);
     const [toValue, setToValue] = React.useState(0);
     const [rates, setRates] = React.useState({})
@@ -35,14 +35,14 @@ export default function App() {
         setToCurrency(cur)
     }
     function onChangeFromValue(value) {
-        const price = fromValue / rates.current[fromCurrency];
-        const result = price * rates.current[toCurrency];
+        const price = value / rates[fromCurrency];
+        const result = price * rates[toCurrency];
         setFromValue(value);
         setToValue(result)
     }
     function onChangeToValue(value) {
-        const price = toValue / rates.current[toCurrency];
-        const result = price * rates.current[fromCurrency];
+        const price = value / rates[toCurrency];
+        const result = price * rates[fromCurrency];
         setFromValue(result);
         setToValue(value)
     }
